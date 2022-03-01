@@ -1,0 +1,221 @@
+{
+  "info": {
+    "_postman_id": "100fbb7d-d180-4e31-a9cc-7bc4093f8c83",
+    "name": "CleverIt Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Albums_wrong_id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "c0640e80-8f25-44ff-a6b9-e3b3765a9b68",
+            "exec": [
+              "let jsonData = pm.response.json()",
+              "pm.test(\"Response time is less than 200ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);",
+              "});",
+              "",
+              "pm.test(\"Body Respose returns 100 albums\", function () {",
+              "    pm.expect(jsonData.length).to.equal(100)",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "82c2a64e-b4c1-471b-922c-d9d664512a1d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/albums"
+      },
+      "response": []
+    },
+    {
+      "name": "Albums_get_all",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "199c28ff-bd71-4c06-870f-73b50870ad2b",
+            "exec": [
+              "pm.test(\"Response time is less than 200ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);",
+              "});",
+              "",
+              "pm.test(\"Body is correct\", function () {",
+              "    pm.response.to.have.body(\"{}\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "a6c0b93e-205b-4a6b-910e-f4a0943c979f",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/albums/A1"
+      },
+      "response": []
+    },
+    {
+      "name": "Post_delete",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "fe21c69e-2b23-47f1-a677-b557d2e1f71a",
+            "exec": [
+              "let jsonData = pm.response.json()",
+              "pm.test(\"Response time is less than 300ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(300);",
+              "});",
+              "",
+              "pm.test(\"Body Respose should be empty\", function () {",
+              "    pm.expect(jsonData).to.be.empty",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "ac40e81b-2dc1-4565-b17f-443f0101eba1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/posts/99"
+      },
+      "response": []
+    },
+    {
+      "name": "Posts_get_all",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "3166516d-50de-4cf5-b7ef-5ed143589925",
+            "exec": [
+              "let jsonData = pm.response.json()",
+              "pm.test(\"Response time is less than 200ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);",
+              "});",
+              "",
+              "pm.test(\"Body Respose returns 100 posts\", function () {",
+              "    pm.expect(jsonData.length).to.equal(100)",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "3b5aac4b-a0eb-43fe-ba27-7781ef5440e8",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/posts"
+      },
+      "response": []
+    },
+    {
+      "name": "Comments_get_one",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "aace56f8-1a9b-498e-a9f4-a5377b6bd07f",
+            "exec": [
+              "let jsonData = pm.response.json()",
+              "pm.test(\"Response time is less than 300ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(300);",
+              "});",
+              "",
+              "pm.test(\"Body Should have 500 comments\", function () {",
+              "    pm.expect(jsonData.length).to.equal(500)",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "1dfd701a-c537-4e27-9729-5c72db8ccfbc",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/comments"
+      },
+      "response": []
+    },
+    {
+      "name": "Comments_get_all",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "952283c9-650d-4ab4-980e-2b78e7ca4eab",
+            "exec": [
+              "let jsonData = pm.response.json()",
+              "pm.test(\"Response time is less than 200ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);",
+              "});",
+              "",
+              "pm.test(\"Body Should be one element with the id 300 ad with a postId\", function () {",
+              "    pm.expect(jsonData.id).to.equal(300)",
+              "    pm.expect(jsonData).to.have.property('postId')",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "8ffdea55-1f11-4df9-acab-d2d065b268a6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/comments/300"
+      },
+      "response": []
+    }
+  ]
+}
